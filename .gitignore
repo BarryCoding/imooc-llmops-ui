@@ -15,8 +15,6 @@ coverage
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*
@@ -34,3 +32,7 @@ coverage
 
 # Vitest
 __screenshots__/
+
+# Auto-generated type declarations
+auto-imports.d.ts
+components.d.ts
