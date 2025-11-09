@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BlankLayout from '@/views/layouts/BlankLayout.vue'
 import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
+import { isLogin } from '@/utils/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,12 @@ const router = createRouter({
       ],
     },
   ],
+})
+
+router.beforeEach((to) => {
+  if (!isLogin() && to.name != 'auth.login') {
+    return { name: 'auth.login' }
+  }
 })
 
 export default router
